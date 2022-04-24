@@ -38,9 +38,46 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--main-yellow-color);
+  margin: 2rem;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  width: 80%;
+  margin: auto;
+}
+
+.h2 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-align: center;
+  margin: auto;
+  color: gray;
+}
+
+.h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+}
+
+.h3-bold {
+  font-size: 1rem;
+  font-weight: 800;
+  color: white;
+}
+
+.logo {
+  display: block;
+  margin: auto;
+  max-width: 15%;
+  max-height: 15%;
 }
