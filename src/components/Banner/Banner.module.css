@@ -1,0 +1,27 @@
+.EmailCTA {
+  margin: 2rem;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: 32px;
+  background-image: linear-gradient(to right, #ea3524, #4d9feb);
+  cursor: "pointer";
+  text-decoration: none;
+}
+
+.Icon {
+  font-size: 2rem;
+  margin-right: 1.5rem;
+}
+
+.PrimaryText {
+  font-size: 1rem;
+  font-weight: 800;
+  color: white;
+}
+
+.SecondaryText {
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+}

@@ -1,0 +1,24 @@
+.Button {
+  position: absolute;
+  margin: 2rem;
+  padding: 0.2rem 0.6rem;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  background-color: gainsboro;
+}
+
+.Button:active {
+  background-color: transparent;
+}
+
+.Icon {
+  font-size: 1rem;
+  margin-right: 0.3rem;
+}
+
+.Text {
+  font-size: 1rem;
+  font-weight: 700;
+  color: gray;
+}
