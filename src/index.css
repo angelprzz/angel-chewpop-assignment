@@ -4,6 +4,7 @@
   --main-blue-color: #4d9feb;
 
   --light-gray-color: #f4f4f5;
+  --alt-gray-color: #d6d7da;
   --gray-color: #909299;
   --dark-gray-color: #656872;
   --black-color: #000000;
@@ -69,6 +70,7 @@ code {
   font-size: 1rem;
   font-weight: 600;
   text-align: center;
+  color: white;
 }
 
 .h3-bold {
@@ -82,4 +84,15 @@ code {
   margin: auto;
   max-width: 10%;
   max-height: 10%;
+}
+
+.dash-line {
+  margin: 0 auto;
+  border: none;
+  border-top: 3px dashed var(--alt-gray-color);
+  color: #fff;
+  background-color: #fff;
+  align-items: center;
+  height: 1px;
+  width: 70%;
 }

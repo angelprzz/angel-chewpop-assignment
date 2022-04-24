@@ -6,6 +6,7 @@ import "react-spring-bottom-sheet/dist/style.css";
 import "./index.css";
 import logo from "./assets/popchew-logo.png";
 import FoodItem from "./components/FoodItem/FoodItem";
+import Banner from "./components/Banner/Banner";
 
 function App() {
   const [userName, setUserName] = useState("");
@@ -64,7 +65,7 @@ function App() {
         ref={sheetRef}
         initialFocusRef={focusRef}
         defaultSnap={({ maxHeight }) => maxHeight / 15}
-        snapPoints={({ maxHeight }) => [maxHeight / 15, maxHeight * 0.7]}
+        snapPoints={({ maxHeight }) => [maxHeight / 15, maxHeight * 0.8]}
       >
         <p style={{ margin: "0 2rem" }}>
           <p className="h2">Menu</p>
@@ -77,6 +78,13 @@ function App() {
             <p>Loading...</p>
           )}
         </p>
+        <div className="dash-line" />
+        <Banner
+          icon="✉️"
+          primaryText="Have a request?"
+          secondaryText="Email us suggestions!"
+          email="russell@popchew.com"
+        />
       </BottomSheet>
     </main>
   );
