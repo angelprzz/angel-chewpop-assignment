@@ -1,0 +1,15 @@
+.FoodItem {
+  display: block;
+  margin: 1rem;
+}
+
+.Title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.Description {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--dark-gray-color);
+}

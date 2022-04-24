@@ -1,19 +1,63 @@
-import React, { useState, useRef } from "react";
+import axios from "axios";
+import React, { useState, useRef, useEffect } from "react";
 import { BottomSheet } from "react-spring-bottom-sheet";
 import "react-spring-bottom-sheet/dist/style.css";
 
-import logo from "./assets/popchew-logo.png";
 import "./index.css";
+import logo from "./assets/popchew-logo.png";
+import FoodItem from "./components/FoodItem/FoodItem";
 
 function App() {
-  const [open, setOpen] = useState(false);
+  const [userName, setUserName] = useState("");
+
+  const [foodName, setFoodName] = useState("");
+  const [foodDescription, setFoodDescription] = useState("");
+
+  const [dessertVariery, setDessertVariety] = useState("");
+  const [dessertFlavor, setDessertFlavor] = useState("");
+
+  const [beerName, setBeerName] = useState("");
+  const [beerStyle, setBeerStyle] = useState("");
+
   const focusRef = useRef();
   const sheetRef = useRef();
+
+  useEffect(() => {
+    axios
+      .all([
+        axios.get("https://reqres.in/api/users/1"),
+        axios.get("https://random-data-api.com/api/food/random_food"),
+        axios.get("https://random-data-api.com/api/dessert/random_dessert"),
+        axios.get("https://random-data-api.com/api/beer/random_beer"),
+      ])
+      .then(
+        axios.spread((name, food, dessert, beer) => {
+          setUserName(name.data.data.first_name);
+
+          setFoodName(food.data.dish);
+          setFoodDescription(food.data.description);
+
+          setDessertFlavor(dessert.data.flavor);
+          setDessertVariety(dessert.data.variety);
+
+          setBeerName(beer.data.name);
+          setBeerStyle(beer.data.style);
+        })
+      )
+      .catch((error) => console.log(error));
+  }, []);
+
+  const items = [];
+  for (let i = 1; i <= 4; i++) {
+    items.push();
+  }
 
   return (
     <main className="app-main">
       <img className="logo" src={logo} alt="Popchew Logo" />
-      <p className="h1">Welcome back, Rushir!</p>
+      <p className="h1">
+        {userName != "" ? `Welcome back, ${userName}!` : "Loading..."}
+      </p>
       <BottomSheet
         open
         skipInitialTransition
@@ -22,7 +66,17 @@ function App() {
         defaultSnap={({ maxHeight }) => maxHeight / 15}
         snapPoints={({ maxHeight }) => [maxHeight / 15, maxHeight * 0.7]}
       >
-        <p className="h2">Menu</p>
+        <p style={{ margin: "0 2rem" }}>
+          <p className="h2">Menu</p>
+          <p className="h3">Delicous Treats</p>
+          {foodName != "" && foodDescription != "" ? (
+            Array(4).fill(
+              <FoodItem title={foodName} description={foodDescription} />
+            )
+          ) : (
+            <p>Loading...</p>
+          )}
+        </p>
       </BottomSheet>
     </main>
   );
