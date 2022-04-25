@@ -78,20 +78,11 @@ code {
   color: white;
 }
 
-.logo {
-  display: block;
-  margin: auto;
-  max-width: 10%;
-  max-height: 10%;
+.slider-content {
+  margin: 0 10%;
 }
 
-.dash-line {
-  margin: 0 auto;
-  border: none;
-  border-top: 3px dashed var(--alt-gray-color);
-  color: #fff;
-  background-color: #fff;
-  align-items: center;
-  height: 1px;
-  width: 70%;
+.button-row {
+  display: flex;
+  justify-content: center;
 }

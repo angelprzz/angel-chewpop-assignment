@@ -4,10 +4,11 @@ import { BottomSheet } from "react-spring-bottom-sheet";
 import "react-spring-bottom-sheet/dist/style.css";
 
 import "./index.css";
-import logo from "./assets/popchew-logo.png";
 import FoodItem from "./components/FoodItem/FoodItem";
 import Banner from "./components/Banner/Banner";
 import Button from "./components/Button/Button";
+import DashedLine from "./components/DashedLine/DashedLine";
+import Logo from "./components/Logo/Logo";
 
 function App() {
   const [userName, setUserName] = useState("");
@@ -67,7 +68,7 @@ function App() {
 
   return (
     <main className="app-main">
-      <img className="logo" src={logo} alt="Popchew Logo" />
+      <Logo />
       <p className="h1" style={{ margin: "15rem auto" }}>
         {userName != "" ? `Welcome back, ${userName}!` : "Loading..."}
       </p>
@@ -79,12 +80,12 @@ function App() {
         defaultSnap={({ maxHeight }) => maxHeight / 15}
         snapPoints={({ maxHeight }) => [maxHeight / 15, maxHeight * 0.8]}
       >
-        <p style={{ margin: "0 2rem" }}>
+        <div className="slider-content">
           <p className="h2">Menu</p>
-          <p className="h3" style={{ marginTop: "1.5rem" }}>
+          <p className="h3" style={{ marginTop: "1rem" }}>
             Delicous Treats
           </p>
-          <div style={{ display: "flex", justifyContent: "center" }}>
+          <div className="button-row">
             <Button
               icon="🍔"
               text="Food"
@@ -105,7 +106,6 @@ function App() {
             />
           </div>
           <div>
-            {/* <FoodItem title={foodName} description={foodDescription} /> */}
             {foodName != "" && foodDescription != "" ? (
               (() => {
                 let items = [];
@@ -118,14 +118,14 @@ function App() {
               <p>Loading...</p>
             )}
           </div>
-        </p>
-        <div className="dash-line" />
-        <Banner
-          icon="✉️"
-          primaryText="Have a request?"
-          secondaryText="Email us suggestions!"
-          email="russell@popchew.com"
-        />
+          <DashedLine />
+          <Banner
+            icon="✉️"
+            primaryText="Have a request?"
+            secondaryText="Email us suggestions!"
+            email="russell@popchew.com"
+          />
+        </div>
       </BottomSheet>
     </main>
   );
