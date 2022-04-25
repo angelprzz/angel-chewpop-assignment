@@ -68,7 +68,7 @@ function App() {
   return (
     <main className="app-main">
       <img className="logo" src={logo} alt="Popchew Logo" />
-      <p className="h1">
+      <p className="h1" style={{ margin: "15rem auto" }}>
         {userName != "" ? `Welcome back, ${userName}!` : "Loading..."}
       </p>
       <BottomSheet
@@ -81,7 +81,9 @@ function App() {
       >
         <p style={{ margin: "0 2rem" }}>
           <p className="h2">Menu</p>
-          <p className="h3">Delicous Treats</p>
+          <p className="h3" style={{ marginTop: "1.5rem" }}>
+            Delicous Treats
+          </p>
           <div style={{ display: "flex", justifyContent: "center" }}>
             <Button
               icon="🍔"
