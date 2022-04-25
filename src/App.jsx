@@ -7,6 +7,7 @@ import "./index.css";
 import logo from "./assets/popchew-logo.png";
 import FoodItem from "./components/FoodItem/FoodItem";
 import Banner from "./components/Banner/Banner";
+import Button from "./components/Button/Button";
 
 function App() {
   const [userName, setUserName] = useState("");
@@ -19,6 +20,8 @@ function App() {
 
   const [beerName, setBeerName] = useState("");
   const [beerStyle, setBeerStyle] = useState("");
+
+  const [section, setSection] = useState(1);
 
   const focusRef = useRef();
   const sheetRef = useRef();
@@ -48,10 +51,19 @@ function App() {
       .catch((error) => console.log(error));
   }, []);
 
-  const items = [];
-  for (let i = 1; i <= 4; i++) {
-    items.push();
-  }
+  const renderSection = () => {
+    switch (section) {
+      case 1:
+        return <FoodItem title={foodName} description={foodDescription} />;
+        break;
+      case 2:
+        return <FoodItem title={dessertVariery} description={dessertFlavor} />;
+        break;
+      case 3:
+        return <FoodItem title={beerName} description={beerStyle} />;
+        break;
+    }
+  };
 
   return (
     <main className="app-main">
@@ -70,13 +82,40 @@ function App() {
         <p style={{ margin: "0 2rem" }}>
           <p className="h2">Menu</p>
           <p className="h3">Delicous Treats</p>
-          {foodName != "" && foodDescription != "" ? (
-            Array(4).fill(
-              <FoodItem title={foodName} description={foodDescription} />
-            )
-          ) : (
-            <p>Loading...</p>
-          )}
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <Button
+              icon="🍔"
+              text="Food"
+              onClick={() => setSection(1)}
+              color={section != 1 && "transparent"}
+            />
+            <Button
+              icon="🧁"
+              text="Dessert"
+              onClick={() => setSection(2)}
+              color={section != 2 && "transparent"}
+            />
+            <Button
+              icon="🍺"
+              text="Beer"
+              onClick={() => setSection(3)}
+              color={section != 3 && "transparent"}
+            />
+          </div>
+          <div>
+            {/* <FoodItem title={foodName} description={foodDescription} /> */}
+            {foodName != "" && foodDescription != "" ? (
+              (() => {
+                let items = [];
+                for (let i = 1; i <= 4; i++) {
+                  items.push(renderSection());
+                }
+                return items;
+              })()
+            ) : (
+              <p>Loading...</p>
+            )}
+          </div>
         </p>
         <div className="dash-line" />
         <Banner

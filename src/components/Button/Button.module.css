@@ -1,14 +1,13 @@
 .Button {
-  position: absolute;
-  margin: 2rem;
+  margin: 2rem 0.5rem 0.5rem 1rem;
   padding: 0.2rem 0.6rem;
   display: flex;
   align-items: center;
   border-radius: 10px;
-  background-color: gainsboro;
+  background-color: var(--light-gray-color);
 }
 
-.Button:active {
+.Button .active {
   background-color: transparent;
 }
 

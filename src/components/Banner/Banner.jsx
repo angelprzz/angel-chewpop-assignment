@@ -8,7 +8,9 @@ export default function EmailCTA({ icon, primaryText, secondaryText, email }) {
       <div className={classes.Icon}>{icon}</div>
       <div>
         <div className="h3-bold">{primaryText}</div>
-        <div className="h3">{secondaryText}</div>
+        <div className="h3" style={{ color: "white" }}>
+          {secondaryText}
+        </div>
       </div>
     </a>
   );
