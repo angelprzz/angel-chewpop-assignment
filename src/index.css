@@ -3,8 +3,9 @@
   --main-red-color: #ea3524;
   --main-blue-color: #4d9feb;
 
+  --white-color: #ffffff;
   --light-gray-color: #f4f4f5;
-  --alt-gray-color: #d6d7da;
+  --medium-gray-color: #d6d7da;
   --gray-color: #909299;
   --dark-gray-color: #656872;
   --black-color: #000000;
@@ -56,6 +57,7 @@ code {
   text-align: center;
   width: 80%;
   margin: auto;
+  margin: 15rem auto;
 }
 
 .h2 {
@@ -63,7 +65,7 @@ code {
   font-weight: 900;
   text-align: center;
   margin: auto;
-  color: gray;
+  color: var(--dark-gray-color);
 }
 
 .h3 {
@@ -75,14 +77,5 @@ code {
 .h3-bold {
   font-size: 1rem;
   font-weight: 800;
-  color: white;
-}
-
-.slider-content {
-  margin: 0 10%;
-}
-
-.button-row {
-  display: flex;
-  justify-content: center;
+  color: var(--white-color);
 }

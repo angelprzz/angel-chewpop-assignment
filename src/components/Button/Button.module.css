@@ -19,5 +19,5 @@
 .Text {
   font-size: 1rem;
   font-weight: 700;
-  color: gray;
+  color: var(--dark-gray-color);
 }

@@ -9,6 +9,8 @@ import Banner from "./components/Banner/Banner";
 import Button from "./components/Button/Button";
 import DashedLine from "./components/DashedLine/DashedLine";
 import Logo from "./components/Logo/Logo";
+import SliderContent from "./components/SliderContainer/SliderContainer";
+import ButtonRow from "./components/ButtonRow/ButtonRow";
 
 function App() {
   const [userName, setUserName] = useState("");
@@ -69,7 +71,7 @@ function App() {
   return (
     <main className="app-main">
       <Logo />
-      <p className="h1" style={{ margin: "15rem auto" }}>
+      <p className="h1">
         {userName != "" ? `Welcome back, ${userName}!` : "Loading..."}
       </p>
       <BottomSheet
@@ -80,12 +82,12 @@ function App() {
         defaultSnap={({ maxHeight }) => maxHeight / 15}
         snapPoints={({ maxHeight }) => [maxHeight / 15, maxHeight * 0.8]}
       >
-        <div className="slider-content">
+        <SliderContent>
           <p className="h2">Menu</p>
           <p className="h3" style={{ marginTop: "1rem" }}>
             Delicous Treats
           </p>
-          <div className="button-row">
+          <ButtonRow>
             <Button
               icon="🍔"
               text="Food"
@@ -104,7 +106,7 @@ function App() {
               onClick={() => setSection(3)}
               color={section != 3 && "transparent"}
             />
-          </div>
+          </ButtonRow>
           <div>
             {foodName != "" && foodDescription != "" ? (
               (() => {
@@ -125,7 +127,7 @@ function App() {
             secondaryText="Email us suggestions!"
             email="russell@popchew.com"
           />
-        </div>
+        </SliderContent>
       </BottomSheet>
     </main>
   );

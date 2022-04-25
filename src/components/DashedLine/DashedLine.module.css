@@ -1,10 +1,10 @@
 .DashedLine {
   margin: 0 auto;
   border: none;
-  border-top: 3px dashed var(--alt-gray-color);
-  color: #fff;
-  background-color: #fff;
+  border-top: 3px dashed var(--medium-gray-color);
+  color: var(--white-color);
+  background-color: var(--white-color);
   align-items: center;
   height: 1px;
-  width: 75%;
+  width: 80%;
 }
